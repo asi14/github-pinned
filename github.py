@@ -6,7 +6,7 @@ import datetime
 url = 'https://api.github.com/user/repos'
 url_4 = 'https://api.github.com/graphql'
 
-def pull_v3(username,password):#lists full repo, NOT pinned repos, also needs to handle bad passwords
+def pull_v3(username,password):#gets repos with latest updates from within a month
 	#creates today's date and margin to test for repos actively maintained
 	today = datetime.datetime.today()
 	margin = datetime.timedelta(days=30)
@@ -15,6 +15,8 @@ def pull_v3(username,password):#lists full repo, NOT pinned repos, also needs to
 	r = requests.get(url, auth=(username,password))
 	json_stuff = r.json()
 
+	data_output = {}
+
 	#gets commit's last commit and sees if falls in margin
 	for i in json_stuff:
 		#gets datetime object of last commmit
@@ -22,9 +24,10 @@ def pull_v3(username,password):#lists full repo, NOT pinned repos, also needs to
 
 		#margin comparison
 		if(today-datetime_object<margin):
-			print(i['name'])
 			r_lang = requests.get('https://api.github.com/repos/%s/%s/languages' %(username,i['name'])).json()
-			print(r_lang)
+			data_output[i['name']] = {'languages':r_lang,'description':i['description']}
+	data_json = json.dumps(data_output, indent=4, sort_keys=True)
+	print(data_json)		
 def pull_v4(): #need to resolve oauth problems
 	r = requets.get('https://github.com/login/oauth/authorize')
 	print(json.dumps(r.json(), indent=4, sort_keys=True))
@@ -33,4 +36,5 @@ def user_enter():
 	username = input("Enter username: ")
 	password = getpass.getpass("Enter password: ")
 	pull_v3(username,password)
-user_enter()
+if __name__ == '__main__':
+	user_enter()
