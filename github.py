@@ -23,8 +23,8 @@ def pull_v3(username,password):#lists full repo, NOT pinned repos, also needs to
 		#margin comparison
 		if(today-datetime_object<margin):
 			print(i['name'])
-			print(i['language'])
-			print(datetime_object)
+			r_lang = requests.get('https://api.github.com/repos/%s/%s/languages' %(username,i['name'])).json()
+			print(r_lang)
 def pull_v4(): #need to resolve oauth problems
 	r = requets.get('https://github.com/login/oauth/authorize')
 	print(json.dumps(r.json(), indent=4, sort_keys=True))
