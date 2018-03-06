@@ -3,14 +3,14 @@
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{python}
+\RequirePackage{pythontex}
 %needs luatex and xetex support
 
+%note: environments not allowed in latex
+
 \newcommand{\sample}{
-	\message{compile a}
-	\begin{python}
-	print('Hello World')
-	\end{python}
-	\message{compile b}
+\begin{pycode}
+print('hello world')
+\end{pycode}
 }
 \newcommand{\centeraaa}{\begin{center}test\end{center}}
