@@ -1,5 +1,5 @@
-\NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{github-pinned}[]
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{github-pinned}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
@@ -7,7 +7,10 @@
 %needs luatex and xetex support
 
 \newcommand{\sample}{
-\begin{python}
-print('Hello World')
-\end{python}	
+	\message{compile a}
+	\begin{python}
+	print('Hello World')
+	\end{python}
+	\message{compile b}
 }
+\newcommand{\centeraaa}{\begin{center}test\end{center}}
