@@ -1,5 +1,2 @@
-LATEX:
--Texlives ubuntu (not manual)
--texlive-extra-utils (ubuntu) -- includes pythontex
-
 PYTHON:
+-pip install pylatex

@@ -1,0 +1,36 @@
+\documentclass{article}
+
+%\usepackage{github-pinned}
+\usepackage{pythontex}
+\usepackage{python}
+
+\newenvironment{github-pinned}{
+\begin{pycode}
+print('hello world')
+\end{pycode}	
+}{}
+
+\newcommand{\sample}{
+\begin{pycode}
+print('hello world')
+\end{pycode}
+}
+
+\newenvironment{gitt}{
+\begin{python}
+print('hello world')
+\end{python}	
+}
+
+\begin{document}
+
+This is a test
+
+
+%\begin{pycode}
+%print('hello world')
+%\end{pycode}
+saefeas
+
+\begin{gitt}\end{gitt}
+\end{document}

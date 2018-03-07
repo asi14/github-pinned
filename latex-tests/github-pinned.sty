@@ -4,13 +4,28 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{pythontex}
+\RequirePackage{python}
 %needs luatex and xetex support
 
 %note: environments not allowed in latex
+%NEW METHOD: COMPILE LATEX USING PYTHON
+
+\newenvironment{github-pinned}{
+\begin{pycode}
+print('hello world')
+\end{pycode}	
+}{}
 
 \newcommand{\sample}{
 \begin{pycode}
 print('hello world')
 \end{pycode}
 }
+
+\newenvironment{gitt}{
+\begin{python}
+print('hello world')
+\end{python}	
+}
+
 \newcommand{\centeraaa}{\begin{center}test\end{center}}
