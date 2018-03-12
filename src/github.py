@@ -36,7 +36,7 @@ def pull_margin(number_days):#gets repos with latest updates from within a month
 			r_lang = requests.get('https://api.github.com/repos/%s/%s/languages' %(username,i['name'])).json()
 			data_output[i['name']] = {'languages':r_lang,'description':i['description']}
 	data_json = json.dumps(data_output, indent=4, sort_keys=True)
-	return data_json		
+	return json.loads(data_json)
 def pull_last_number(number_repos): #pulls the latest n repos
 	user_enter_output = user_enter()
 	request_json = user_enter_output[0]

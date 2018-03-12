@@ -9,11 +9,12 @@ def make_file():
 
 def github_generate(doc):
 	output=make_file()
+	print(output)
 	with doc.create(Section('Github Projects')):
 		with doc.create(Itemize()) as itemize:
-			for i in range(len(output)):
-				print(output[i])
-				itemize.add_item(output[i])	
+			for key,values in output.items():
+				print(key)
+				itemize.add_item(key)	
 
 if __name__ == '__main__':
 	print('AAAAAAAAAA')
