@@ -17,6 +17,10 @@ def github_generate(doc):
 				with doc.create(Itemize()) as itemize:
 					print(output[key]['description'])
 					itemize.add_item('Description:' + output[key]['description'])
+					language = 'Languages: '
+					for lang in output[key]['languages']:
+						language+=lang + ', '
+					itemize.add_item(language)
 
 
 if __name__ == '__main__':
