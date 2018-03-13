@@ -1,0 +1,36 @@
+%sample style file for resume
+%note: you should ideally be creating your own implementation
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{myresume}[2017/7/17]
+\RequirePackage{titlesec}
+\RequirePackage[margin=1in]{geometry}
+
+%modifies .\section and .\subsection tags
+\titleformat{\section}
+	{\Large\scshape\raggedright}
+	{}{0em}
+	{}
+	[\titlerule]
+\titleformat{\subsection}
+	{\large\scshape\raggedright}
+	{}{0em}
+	{}
+
+%adds date to .\section and .\subsection respectively
+\newcommand{\datedsection}[2]{%
+	\section[#1]{#1 \hfill #2}%
+}
+\newcommand{\datedsubsection}[2]{%
+	\subsection[#1]{#1 \hfill #2}%
+}
+
+%generates name and contact info
+\newcommand{\name}[1]{
+	\centerline{\Huge{#1}}
+}
+\newcommand{\contact}[6]{
+	{\center{#1 #2, #3 #4\\}}
+	{\center{#5 {\large\textperiodcentered} #6 {\large\textperiodcentered} Github: asi14\\}}
+
+}
